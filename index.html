@@ -40,7 +40,7 @@
                         <p style="text-align:center">
                             <name>Dhawal Modi</name>
                         </p>
-                        <p>I am an MS student in Electrical Engineering & Computer Science graduate group at University
+                        <p>I am a MS student in Electrical Engineering & Computer Science graduate group at University
                             of California - Merced. My interests include Machine Learning and Deep Learning on embedded
                             devices and Edge AI IoT boards.
                         </p>
@@ -75,7 +75,8 @@
                     <td style="padding:20px;width:100%;vertical-align:middle">
                         <heading>Research Interests</heading>
                         <p>
-                            I'm interested in Machine Learning & Deep learning for Embedded Systems and Robotics.
+                            My research interests include implementing and optimizing Machine Learning and Deep Learning models on Embedded Devices.
+                            I'm also interested in Perception and control for UGVs and UAVs.
                         </p>
                     </td>
                 </tr>
@@ -161,14 +162,24 @@
                                 <papertitle>MoCA Lab, UC Merced</papertitle>
                             </a>, <em>Merced, USA</em>
                             <br>
-                            <strong>Research Member</strong>
+                            <strong>Graduate Student Researcher</strong>
                             <br>
                             Spring 2024 - Present
 
                             <p align="justify">
                             <ul>
-                                <li>Working on Autonomous robot capable of driving through forests while following a
-                                    person.
+                                <li>
+                                    As a GSR I am working on developing navigation and control algorithms for an
+                                    Unmanned Ground Vehicle capable of following people through rough terrain.
+                                </li>
+                                <li>
+                                    Developed and refined person-following and tracking capabilities using ROS and
+                                    TensorFlow Pose Estimation for real-time robot person tracking.
+                                </li>
+                                <li>
+                                    Tested application performance on the Nvidia Orin AGX platform to identify software
+                                    optimizations, resulting in 8% faster feature extraction and 3% lower power
+                                    consumption compared to the baseline.
                                 </li>
                             </ul>
                             </p>
@@ -180,7 +191,7 @@
                             <img , height="100" src='images/tcs.png' width="200">
                         </td>
                         <td swidth="75%" valign="center">
-                            <a href="https://www.dell.com/en-us" target="_blank">
+                            <a href="https://www.tcs.com/what-we-do/industries/banking" target="_blank">
                                 <papertitle>Tata Consultancy Services</papertitle>
                             </a>, <em>Bangalore, Karnataka, India</em>
                             <br>
@@ -189,6 +200,34 @@
                             November 2020 - July 2023
                             <p align="justify">
                             <ul>
+                                <li>
+                                    Implemented and streamlined validation routines for Outward Direct Debits and Credit
+                                    Transfer payment channels,
+                                    developing interfaces as per FPS and HKICL specifications. This enabled
+                                    high-efficiency processing, handling up to
+                                    100,000 transactions per minute.
+                                </li>
+                                <li>Designed Spring REST API Client integration with BPAY API, enhancing real-time bill
+                                    payment processing by 35%;
+                                    led microservices architecture development for rapid API prototyping, ensuring
+                                    successful deployment to testing
+                                    and production environments.
+                                </li>
+                                <li>Conducted comprehensive design sessions with clients and users for Inward/Outward
+                                    Direct Debit modules,
+                                    resulting in precise documentation that enhanced developer accuracy by 30% and cut
+                                    module testing duration by 5
+                                    hours a week.
+                                </li>
+                                <li>Led a cross-functional team of 3 SDETs in implementing a Spring Boot API testing
+                                    pipeline across 3 testing regions,
+                                    leading to a 20% increase in code delivery speed.
+                                </li>
+                                <li>Innovated and created an automated testing framework for 15 user stories and
+                                    application flows using Jbehave
+                                    BDD Framework, substantially improving regression testing efficiency.
+                                </li>
+
                                 <li>Implemented REST APIs in Java Springboot to serve payments processing logic for
                                     Credit Transfers, Direct Debits, ACH, and Mandates.
                                 </li>
@@ -220,7 +259,8 @@
                             <img , height="120" src='images/merced.png' width="120">
                         </td>
                         <td swidth="75%" valign="center">
-                            <a href="https://eng.ucmerced.edu/abet/courses/2019_30_CSE015-01/tools/view_file?form_id=syllabus_pub" target="_blank">
+                            <a href="https://eng.ucmerced.edu/abet/courses/2019_30_CSE015-01/tools/view_file?form_id=syllabus_pub"
+                               target="_blank">
                                 <papertitle>CSE 015 - Discrete Mathematics</papertitle>
                             </a>
                             <br>
@@ -250,22 +290,82 @@
 
                     <tr>
                         <td valign="top" width="25%">
+                            <img height="100" id="paper_img" src='images/llmheader.png' width="200">
+                        </td>
+                        <td valign="center" width="75%">
+                            <a href="https://github.com/Dhawal-Modi/llm-prompt-recovery"
+                               target="_blank">
+                                <papertitle>LLM Prompt Recovery</papertitle>
+                            </a>
+                            <br>
+                            <em>Final course project for EECS230: Deep Learning in colloboration with <a
+                                    href="https://github.com/kevin-chau" target="_blank">Kevin Chau</a></em>
+                            <br>
+                            <a href="https://github.com/Dhawal-Modi/llm-prompt-recovery"
+                               target="_blank">Code</a>
+                            <br>
+                            <!--                            <a href="data/Final_Report.pdf" target="_blank">Report</a>-->
+                            <p align="justify">
+                                <abstract>
+                                    The goal of this project was to predict a prompt, ⟨Rewrite Prompt⟩, that was used to generate ⟨Rewritten Text⟩ by providing only ⟨Original Text⟩-⟨Rewritten Text⟩ pairs to the LLM.
+                                    At inference, it predicts an embedding using the ⟨Original Text⟩ and the ⟨Rewritten Text⟩. This embedding is compared against a knowledge database of embeddings.
+                                    The most similar embedding in this database is our model prediction. The score for each predicted / expected pair is calculated using the Sharpened Cosine Similarity, using an exponent of 3.
+                                    <br>
+                                    <br>
+                                    Our finetuned models ranked 986 out of 2186. The best leaderboard score was our Phi-2 submission which scored 0.6188. The Mixtral 8x7B model finetuned with 1000 samples
+                                    scored 0.6056 and Gemma 7B finetuned with 5000 samples scored 0.5981.
+                                    <br>
+                                </abstract>
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td valign="top" width="25%">
+                            <img height="100" id="paper_img" src='images/kaggles4e2header.png' width="200">
+                        </td>
+                        <td valign="center" width="75%">
+                            <a href="https://github.com/Dhawal-Modi/Kaggle_Playground_S4E02"
+                               target="_blank">
+                                <papertitle>Multi-Class Prediction of Obesity Risk</papertitle>
+                            </a>
+                            <br>
+                            <em>Kaggle Season 4 Episode 2 Playground series project.</em>
+                            <br>
+                            <a href="https://github.com/Dhawal-Modi/Kaggle_Playground_S4E02"
+                               target="_blank">Code</a>
+                            <br>
+                            <!--                            <a href="data/Final_Report.pdf" target="_blank">Report</a>-->
+                            <p align="justify">
+                                <abstract>
+                                    The goal of this competition is to use various factors to predict obesity risk in individuals, which is related to cardiovascular disease.
+                                    <br>
+                                </abstract>
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td valign="top" width="25%">
                             <img height="100" id="paper_img" src='images/kaggles4e1header.png' width="200">
                         </td>
                         <td valign="center" width="75%">
-                            <a href="https://github.com/Dhawal-Modi/Bank_Customer_Churn_Kaggle_Playground_S4E01" target="_blank">
+                            <a href="https://github.com/Dhawal-Modi/Bank_Customer_Churn_Kaggle_Playground_S4E01"
+                               target="_blank">
                                 <papertitle>Bank Customer Churn Prediction
                                 </papertitle>
                             </a>
                             <br>
                             <em>Kaggle Season 4 Episode 1 Playground series project.</em>
                             <br>
-                            <a href="https://github.com/Dhawal-Modi/Bank_Customer_Churn_Kaggle_Playground_S4E01" target="_blank">Code</a>
+                            <a href="https://github.com/Dhawal-Modi/Bank_Customer_Churn_Kaggle_Playground_S4E01"
+                               target="_blank">Code</a>
                             <br>
                             <!--                            <a href="data/Final_Report.pdf" target="_blank">Report</a>-->
                             <p align="justify">
                                 <abstract>
-                                    For this Episode of the Series, the task is to predict whether a customer continues with their account or closes it (e.g., churns).
+                                    For this Episode of the Series, the task is to predict whether a customer continues
+                                    with their account or closes it (e.g., churns).
                                     <br>
                                 </abstract>
                             </p>
@@ -282,7 +382,7 @@
                                 </papertitle>
                             </a>
                             <br>
-                            <em>Course project for EECS257: Signal Processing for IoT Devices with <a
+                            <em>Final course project for EECS257: Signal Processing for IoT Devices with <a
                                     href="https://github.com/sravanje" target="_blank">Sravan Jayati</a></em>
                             <br>
                             <a href="data/Final_Report.pdf" target="_blank">Report</a>
@@ -301,24 +401,31 @@
                             <img height="100" id="traffic" src='images/traffic.png' width="200">
                         </td>
                         <td valign="center" width="75%">
-                            <a href="https://github.com/Dhawal-Modi/Dynamic-Traffic-Management-using-OpenCV" target="_blank">
+                            <a href="https://github.com/Dhawal-Modi/Dynamic-Traffic-Management-using-OpenCV"
+                               target="_blank">
                                 <papertitle>Real-Time Dynamic Traffic Management using OpenCV and Arduino
                                 </papertitle>
                             </a>
                             <br>
                             <em>Hackathon project for Smart India Hackathon 2018 (Hardware Edition). </em>
                             <br>
-                            <a href="https://github.com/Dhawal-Modi/Dynamic-Traffic-Management-using-OpenCV" target="_blank">Code</a>
+                            <a href="https://github.com/Dhawal-Modi/Dynamic-Traffic-Management-using-OpenCV"
+                               target="_blank">Code</a>
                             <br>
                             <p align="justify">
                                 <abstract>
-                                    The Problem : As cities grow, traffic gets worse. Poorly planned infrastructure and improper traffic policies lead to traffic bottlenecks.
-                                    Traffic jams and long wait times at intersections lead to wastage of time and fuel and can cost a country in terms of it's GDP.
+                                    The Problem : As cities grow, traffic gets worse. Poorly planned infrastructure and
+                                    improper traffic policies lead to traffic bottlenecks.
+                                    Traffic jams and long wait times at intersections lead to wastage of time and fuel
+                                    and can cost a country in terms of it's GDP.
                                     <br>
                                     <br>
-                                    The Solution: Real-Time Dynamic Traffic Management system. Using Vehicle Detection and Lane occupancy we can adjust to real-time traffic scenarios.
-                                    The system detects traffic conditions using vehicle count ,vehicular density and delay time using OpenCV.
-                                    Traffic light timing is then propogated to Arduino controlled traffic lights that can adapt to traffic conditions on a cycle-to-cycle basis.
+                                    The Solution: Real-Time Dynamic Traffic Management system. Using Vehicle Detection
+                                    and Lane occupancy we can adjust to real-time traffic scenarios.
+                                    The system detects traffic conditions using vehicle count ,vehicular density and
+                                    delay time using OpenCV.
+                                    Traffic light timing is then propogated to Arduino controlled traffic lights that
+                                    can adapt to traffic conditions on a cycle-to-cycle basis.
                                 </abstract>
                             </p>
                         </td>
@@ -353,7 +460,8 @@
                 </table>
                 <a href="https://info.flagcounter.com/KVYG"><img
                         alt="Flag Counter"
-                        border="0" src="https://s04.flagcounter.com/count2/KVYG/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_15/viewers_0/labels_0/pageviews_1/flags_0/percent_0/"></a>
+                        border="0"
+                        src="https://s04.flagcounter.com/count2/KVYG/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_15/viewers_0/labels_0/pageviews_1/flags_0/percent_0/"></a>
 </body>
 
 </html>
