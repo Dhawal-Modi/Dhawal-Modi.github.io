@@ -156,14 +156,14 @@ section {
   width: 120px;
   height: 120px;
   margin-right: 20px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .project-img {
     width: 210px;
     height: 180px;
     margin-right: 20px;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .education-info,
