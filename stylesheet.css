@@ -68,6 +68,9 @@ body {
   font-size: 15px;
   background-color: #282828;
   color: #ebdbb2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .container {
@@ -95,6 +98,9 @@ a:hover {
 h1, h2, h3 {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
   color: #fabd2f;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 h1.name {
