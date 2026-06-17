@@ -66,8 +66,8 @@
                 </p>
             </div>
             <div class="profile-pic">
-                <a href="images/pp.jpg"><img alt="profile photo" class="hoverZoomLink"
-                                             src="images/pp.jpg"></a>
+                <iframe class="loader-frame" title="Animated loader" scrolling="no"
+                        frameborder="0" allowtransparency="true"></iframe>
             </div>
         </div>
     </header>
@@ -89,6 +89,7 @@
                         Division of Research</a>, <em>Pleasanton, California</em></h3>
                     <p><a href="https://divisionofresearch.kaiserpermanente.org/research/cardiovascular-and-metabolic-conditions/"
                           target="_blank">Department site</a></p>
+
                     <p><strong>Machine Learning Engineer</strong></p>
                     <p>July 2025 - Present</p>
                     <ul>
@@ -383,6 +384,15 @@
                 src="https://s04.flagcounter.com/count2/KVYG/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_15/viewers_0/labels_0/pageviews_1/flags_0/percent_0/"></a>
     </footer>
 </div>
+<script>
+    // Pick one of the 20 organic loaders at random on each page load.
+    (function () {
+        var frame = document.querySelector('.loader-frame');
+        if (!frame) return;
+        var n = Math.floor(Math.random() * 20) + 1;
+        frame.src = 'loaders/' + n + '.html';
+    })();
+</script>
 </body>
 
 </html>
