@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>18 — Pulsing Cluster</title>
+<style>
+  :root{
+    --bg:      #1d2021;
+    --card:    #282828;
+    --red:     #fb4934;
+    --green:   #b8bb26;
+    --yellow:  #fabd2f;
+    --blue:    #83a598;
+    --purple:  #d3869b;
+    --aqua:    #8ec07c;
+    --orange:  #fe8019;
+  }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; }
+  body{
+    background:transparent;
+    min-height:100vh;
+    padding:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .cell{
+    width:100%;
+    height:100vh;
+    background:transparent;
+    border-radius:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+
+  /* ============ shared keyframes ============ */
+  @keyframes morphA{
+    0%,100%{ border-radius:62% 38% 34% 66% / 60% 32% 68% 40%; }
+    33%    { border-radius:34% 66% 58% 42% / 48% 64% 36% 52%; }
+    66%    { border-radius:46% 54% 42% 58% / 64% 44% 56% 36%; }
+  }
+  @keyframes morphB{
+    0%,100%{ border-radius:40% 60% 64% 36% / 54% 42% 58% 46%; }
+    50%    { border-radius:66% 34% 38% 62% / 38% 66% 34% 62%; }
+  }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+  @keyframes spinRev{ to{ transform:rotate(-360deg); } }
+  @keyframes breathe{
+    0%,100%{ transform:scale(.78); }
+    50%    { transform:scale(1.05); }
+  }
+  @keyframes jelly{
+    0%,100%{ transform:translateY(-14px) scale(1,1); }
+    40%    { transform:translateY(14px)  scale(1.12,.88); }
+    55%    { transform:translateY(14px)  scale(.9,1.1); }
+  }
+
+  /* ============ 1 — solid morphing blob ============ */
+  .l1{ width:120px; height:120px; background:var(--orange);
+       animation:morphA 5s ease-in-out infinite, spin 14s linear infinite; }
+
+  /* ============ 2 — outline morphing blob ============ */
+  .l2{ width:118px; height:118px; border:9px solid var(--aqua);
+       animation:morphA 6s ease-in-out infinite reverse, spinRev 16s linear infinite; }
+
+  /* ============ 3 — concentric counter morph ============ */
+  .l3{ position:relative; width:130px; height:130px; }
+  .l3 .o{ position:absolute; inset:0; border:8px solid var(--yellow);
+          animation:morphA 6s ease-in-out infinite, spin 11s linear infinite; }
+  .l3 .i{ position:absolute; inset:34px; background:var(--red);
+          animation:morphB 4s ease-in-out infinite, spinRev 8s linear infinite; }
+
+  /* ============ 4 — breathing blob ============ */
+  .l4{ width:130px; height:130px; background:var(--green);
+       animation:morphB 7s ease-in-out infinite, breathe 3.2s ease-in-out infinite; }
+
+  /* ============ goo containers ============ */
+  .goo{ position:relative; width:150px; height:150px; filter:url(#goo); }
+  .goo b{ position:absolute; border-radius:50%; }
+
+  /* 5 — orbit 3 dots */
+  .l5 b{ width:40px; height:40px; top:55px; left:55px; background:var(--blue); }
+  .l5 b:nth-child(1){ animation:orbit 2.4s linear infinite; }
+  .l5 b:nth-child(2){ animation:orbit 2.4s linear infinite; animation-delay:-.8s; }
+  .l5 b:nth-child(3){ animation:orbit 2.4s linear infinite; animation-delay:-1.6s; }
+  @keyframes orbit{
+    from{ transform:rotate(0deg) translateX(42px) rotate(0deg); }
+    to  { transform:rotate(360deg) translateX(42px) rotate(-360deg); }
+  }
+
+  /* 6 — travelling dots */
+  .l6 b{ width:34px; height:34px; top:58px; background:var(--purple); }
+  .l6 b:nth-child(1){ animation:travel 2.6s ease-in-out infinite; }
+  .l6 b:nth-child(2){ animation:travel 2.6s ease-in-out infinite; animation-delay:-.5s; }
+  .l6 b:nth-child(3){ animation:travel 2.6s ease-in-out infinite; animation-delay:-1s; }
+  @keyframes travel{
+    0%,100%{ left:6px; transform:scale(.7); }
+    50%    { left:110px; transform:scale(1.1); }
+  }
+
+  /* 7 — split / merge */
+  .l7 b{ width:54px; height:54px; top:48px; left:48px; background:var(--red); }
+  .l7 b:nth-child(1){ animation:splitL 2.8s ease-in-out infinite; }
+  .l7 b:nth-child(2){ animation:splitR 2.8s ease-in-out infinite; }
+  @keyframes splitL{ 0%,100%{ transform:translateX(0) scale(1);} 50%{ transform:translateX(-34px) scale(.78);} }
+  @keyframes splitR{ 0%,100%{ transform:translateX(0) scale(1);} 50%{ transform:translateX(34px)  scale(.78);} }
+
+  /* 8 — ring pulse (6) */
+  .l8 b{ width:30px; height:30px; top:60px; left:60px; background:var(--yellow); }
+  .l8 b{ animation:ringPulse 1.8s ease-in-out infinite; }
+  .l8 b:nth-child(1){ transform:rotate(0deg)   translateX(46px); animation-delay:0s; }
+  .l8 b:nth-child(2){ transform:rotate(60deg)  translateX(46px); animation-delay:-.3s; }
+  .l8 b:nth-child(3){ transform:rotate(120deg) translateX(46px); animation-delay:-.6s; }
+  .l8 b:nth-child(4){ transform:rotate(180deg) translateX(46px); animation-delay:-.9s; }
+  .l8 b:nth-child(5){ transform:rotate(240deg) translateX(46px); animation-delay:-1.2s; }
+  .l8 b:nth-child(6){ transform:rotate(300deg) translateX(46px); animation-delay:-1.5s; }
+  @keyframes ringPulse{
+    0%,100%{ width:18px; height:18px; }
+    50%    { width:40px; height:40px; }
+  }
+
+  /* 9 — center + satellite */
+  .l9 .core{ position:absolute; width:58px; height:58px; border-radius:50%;
+             top:46px; left:46px; background:var(--aqua); }
+  .l9 .sat{ position:absolute; width:34px; height:34px; border-radius:50%;
+            top:58px; left:58px; background:var(--aqua);
+            animation:satellite 2.2s ease-in-out infinite; }
+  @keyframes satellite{
+    from{ transform:rotate(0deg) translateX(50px) rotate(0deg); }
+    to  { transform:rotate(360deg) translateX(50px) rotate(-360deg); }
+  }
+
+  /* 10 — vertical bounce drops */
+  .l10 b{ width:36px; height:36px; background:var(--orange); }
+  .l10 b:nth-child(1){ left:30px; animation:drop 1.6s ease-in-out infinite; }
+  .l10 b:nth-child(2){ left:84px; animation:drop 1.6s ease-in-out infinite; animation-delay:-.5s; }
+  @keyframes drop{
+    0%,100%{ top:14px; transform:scale(1,.85); }
+    50%    { top:96px; transform:scale(.85,1.1); }
+  }
+
+  /* 17 — gooey spinner tail */
+  .l17{ animation:spin 1.4s linear infinite; }
+  .l17 b{ background:var(--blue); }
+  .l17 b:nth-child(1){ width:42px; height:42px; top:8px;  left:54px; opacity:1; }
+  .l17 b:nth-child(2){ width:34px; height:34px; top:24px; left:90px; opacity:.85; }
+  .l17 b:nth-child(3){ width:26px; height:26px; top:58px; left:104px; opacity:.6; }
+  .l17 b:nth-child(4){ width:18px; height:18px; top:92px; left:96px; opacity:.4; }
+
+  /* 18 — pulsing cluster of 4 */
+  .l18 b{ width:46px; height:46px; background:var(--green); }
+  .l18 b:nth-child(1){ top:34px; left:34px; animation:cluster 2s ease-in-out infinite; }
+  .l18 b:nth-child(2){ top:34px; left:70px; animation:cluster 2s ease-in-out infinite; animation-delay:-.5s; }
+  .l18 b:nth-child(3){ top:70px; left:34px; animation:cluster 2s ease-in-out infinite; animation-delay:-1s; }
+  .l18 b:nth-child(4){ top:70px; left:70px; animation:cluster 2s ease-in-out infinite; animation-delay:-1.5s; }
+  @keyframes cluster{
+    0%,100%{ transform:scale(.55); }
+    50%    { transform:scale(1.05); }
+  }
+
+  /* 19 — jelly bounce blob */
+  .l19{ width:104px; height:104px; background:var(--purple);
+        animation:morphB 5s ease-in-out infinite, jelly 1.7s ease-in-out infinite; }
+
+  /* svg loaders sizing */
+  .svgL{ width:150px; height:150px; display:block; }
+  .rot{ animation:spin 9s linear infinite; }
+</style>
+</head>
+<body>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur"/>
+        <feColorMatrix in="blur" mode="matrix"
+          values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -9" result="goo"/>
+        <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <div class="cell"><div class="goo l18"><b></b><b></b><b></b><b></b></div></div>
+
+</body>
+</html>
