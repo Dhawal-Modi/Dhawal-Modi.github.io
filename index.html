@@ -246,23 +246,60 @@
     try { localStorage.setItem('theme', next); } catch (e) {}
   });
 
-  // ----- scrollspy: highlight active nav link -----
+  // ----- scrollspy: keep sidebar nav aligned with the section in view -----
   var links = document.querySelectorAll('[data-nav]');
+  var ids = ['overview','about','experience','projects','publications','teaching','education','contact'];
+  var sections = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+  var activeId = null;
+  var ticking = false;
+
   function setActive(id) {
+    if (activeId === id) return;
+    activeId = id;
     links.forEach(function (a) {
-      a.classList.toggle('active', a.getAttribute('data-nav') === id);
+      var isActive = a.getAttribute('data-nav') === id;
+      a.classList.toggle('active', isActive);
+      if (isActive) a.setAttribute('aria-current', 'true');
+      else a.removeAttribute('aria-current');
     });
   }
-  var ids = ['overview','about','experience','projects','publications','teaching','education','contact'];
-  if ('IntersectionObserver' in window) {
-    var obs = new IntersectionObserver(function (entries) {
-      var vis = entries.filter(function (e) { return e.isIntersecting; })
-        .sort(function (a, b) { return b.intersectionRatio - a.intersectionRatio; })[0];
-      if (vis) setActive(vis.target.id);
-    }, { rootMargin: '-20% 0px -65% 0px', threshold: [0, 0.25, 0.5, 1] });
-    ids.forEach(function (id) { var s = document.getElementById(id); if (s) obs.observe(s); });
+
+  function getActiveSection() {
+    var scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+    var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+    var documentHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+
+    // Near the bottom, make the final reachable section active even if it is short.
+    if (scrollY + viewportHeight >= documentHeight - 2) {
+      return sections[sections.length - 1];
+    }
+
+    // Use a stable reading line in the upper viewport instead of intersection ratio;
+    // this prevents long sections and section gaps from stealing the active state.
+    var readingLine = scrollY + Math.min(viewportHeight * 0.35, 220);
+    var current = sections[0];
+    sections.forEach(function (section) {
+      if (section.offsetTop <= readingLine) current = section;
+    });
+    return current;
   }
-  setActive('overview');
+
+  function updateActiveSection() {
+    ticking = false;
+    var section = getActiveSection();
+    if (section) setActive(section.id);
+  }
+
+  function requestUpdate() {
+    if (!ticking) {
+      ticking = true;
+      window.requestAnimationFrame(updateActiveSection);
+    }
+  }
+
+  window.addEventListener('scroll', requestUpdate, { passive: true });
+  window.addEventListener('resize', requestUpdate);
+  updateActiveSection();
 })();
 </script>
 </body>
