@@ -1,306 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="google-site-verification" content="XXjK99sZKdpFN8kxwbglvDK8Gbhanfx-QfZGGG_TU1M"/>
-    <meta name="description" content="Dhawal Modi - MLE/SWE">
-
-    <title>Dhawal Modi</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="stylesheet.css" rel="stylesheet" type="text/css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="XXjK99sZKdpFN8kxwbglvDK8Gbhanfx-QfZGGG_TU1M"/>
+<meta name="description" content="Dhawal Modi">
+<title>Dhawal Modi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<link href="stylesheet.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div class="layout">
+<div class="page">
 
-  <!-- ===== SIDEBAR ===== -->
-  <aside class="sidebar">
-    <div class="brand">Dhawal Modi</div>
-    <div class="role">Machine Learning Engineer / Software Engineer</div>
-    <div class="badge"><span class="dot"></span>open to roles</div>
-
-    <nav class="nav">
-      <a href="#overview" data-nav="overview">overview</a>
-      <a href="#about" data-nav="about">about</a>
-      <a href="#experience" data-nav="experience">experience</a>
-      <a href="#projects" data-nav="projects">projects</a>
-      <a href="#publications" data-nav="publications">publications</a>
-      <a href="#teaching" data-nav="teaching">teaching</a>
-      <a href="#education" data-nav="education">education</a>
-      <a href="#contact" data-nav="contact">contact</a>
+  <header class="masthead">
+    <a class="name" href="/">Dhawal Modi</a>
+    <nav class="links">
+      <a href="https://github.com/Dhawal-Modi" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/dhawal-modi/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://dhawal-modi.github.io/data/Resume.pdf" target="_blank" rel="noopener">CV</a>
+      <a href="https://mailhide.io/e/oGj79Igg" target="_blank" rel="noopener">Email</a>
     </nav>
+  </header>
 
-    <div class="sidebar-footer">
-      <div class="social">
-        <a href="https://github.com/Dhawal-Modi" target="_blank" rel="noopener">gh</a>
-        <a href="https://www.linkedin.com/in/dhawal-modi/" target="_blank" rel="noopener">in</a>
-        <a href="https://dhawal-modi.github.io/data/Resume.pdf" target="_blank" rel="noopener">cv</a>
-      </div>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">☾ dark</button>
+  <section class="intro">
+    <h1>Machine learning for medical imaging and robotics.</h1>
+    <p class="lead">Building Machine Learning and backend systems in production. Most recently deep learning for medical imaging at Kaiser Permanente's Division of Research, before that computer architecture and ML on-edge research at UC Merced, and a few years of backend engineering on banking and payments.</p>
+<!--    <p class="note">Open to ML engineering roles. Based in the Bay Area.</p>-->
+  </section>
+
+  <hr>
+
+  <section class="block">
+    <h2 class="block-label">Work</h2>
+    <div class="entries">
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Kaiser Permanente</h3>
+          <p class="entry-meta">Machine Learning Engineer, Division of Research · 2025 to 2026</p>
+        </div>
+        <p>I worked on cardiovascular imaging: building ML models for echocardiograms, and data + inferencing pipelines. A large part of the job was getting those models to run reliably across a hospital system's whole imaging archive, which meant rebuilding inference around multiprocessing and multiple GPUs.</p>
+      </article>
+      <article class="entry">
+        <div class="entry-head">
+          <h3>MoCA Lab, UC Merced</h3>
+          <p class="entry-meta">Graduate Student Researcher · 2024 to 2025</p>
+        </div>
+        <p>I built the perception stack for a forestry robot on an AgileX SCOUT platform, the part that decides which ground is safe to drive over, so crews can clear wood waste before it becomes fuel. I fine-tuned models and optimized inference on an NVIDIA Orin AGX, which is what made it fast enough to use in the field.</p>
+      </article>
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Tata Consultancy Services</h3>
+          <p class="entry-meta">Systems Engineer · 2020 to 2023</p>
+        </div>
+        <p>I wrote validation pipelines for Direct Debit and Credit Transfer channels against the FPS and HKICL specs, integrated and built Spring REST clients with the BPay API to speed up bill payments, and led three SDETs shipping a Spring Boot test pipeline across three testing and production deployment regions.</p>
+      </article>
     </div>
-  </aside>
+  </section>
 
-  <!-- ===== MAIN ===== -->
-  <main class="main">
+  <hr>
 
-    <!-- OVERVIEW -->
-    <section id="overview" class="section hero">
-      <div class="label">overview</div>
-      <h1>Software for high-stakes systems.</h1>
-      <p class="lead">I build ML/DL systems for high-stakes, real-world problems. Most recently at Kaiser Permanente's Division of Research, building cardiovascular imaging models at scale. MS in EECS from UC Merced; former backend engineer at TCS.</p>
-      <div class="btn-row">
-        <a href="#projects" class="btn-primary">view projects →</a>
-        <a href="#contact" class="btn-ghost">get in touch</a>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="label">about</div>
-      <p class="prose">I'm a machine learning engineer with a software-engineering backbone, drawn to problems where the model is only half the work - where running it <span class="hl">reliably, at scale, and within real latency budgets</span> matters as much as the architecture. I've worked on cardiovascular imaging at <span class="hl">Kaiser Permanente</span>, robotics and computer architecture at <span class="hl">UC Merced's MoCA Lab</span>, and payment systems at <span class="hl">Tata Consultancy Services</span>. I hold an MS in Electrical Engineering &amp; Computer Science from <span class="hl">UC Merced</span>.</p>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section">
-      <div class="label">experience</div>
-      <div class="timeline">
-        <div class="tl-row bordered">
-          <span class="tl-date">2025 - 26</span>
-          <div>
-            <div class="tl-title">Machine Learning Engineer</div>
-            <div class="tl-org">Kaiser Permanente, Division of Research · Pleasanton, CA</div>
-            <ul class="tl-list">
-              <li>Built ML workflows for cardiovascular imaging - echocardiogram measurement models &amp; coronary artery calcium (CAC) CT segmentation pipelines.</li>
-              <li>Trained a DeepLabV3+ model for echo E/A-ratio measurement, cutting MAE from 0.341 to 0.216 and failure cases from 9% to 3%.</li>
-              <li>Scaled a CAC segmentation inference pipeline to ~1.5M DICOM CT scans; optimized with multiprocessing &amp; multi-GPU to take per-series inference from 260s to 15s.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="tl-row bordered">
-          <span class="tl-date">2024 - 25</span>
-          <div>
-            <div class="tl-title">Graduate Student Researcher</div>
-            <div class="tl-org">MoCA Lab, UC Merced · Merced, CA</div>
-            <ul class="tl-list">
-              <li>Developed a mobile robotic platform on the AgileX SCOUT UGV to help forest crews reduce wood waste and prevent wildfires.</li>
-              <li>Fine-tuned ENet &amp; SegFormer semantic-segmentation models for path traversability (mIoU 0.729 / 0.68 - 23% &amp; 15% over baseline).</li>
-              <li>Deployed ENet on an NVIDIA Orin AGX for real-time inference at 25ms/frame.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="tl-row">
-          <span class="tl-date">2020 - 23</span>
-          <div>
-            <div class="tl-title">Systems Engineer</div>
-            <div class="tl-org">Tata Consultancy Services · Bangalore, India</div>
-            <ul class="tl-list">
-              <li>Built validation routines for Direct Debit &amp; Credit Transfer payment channels per FPS and HKICL specs, processing up to 100k transactions/min.</li>
-              <li>Designed a Spring REST client integration with the BPay API, improving real-time bill payment processing by 35%.</li>
-              <li>Led 3 SDETs to ship a Spring Boot API testing pipeline across 3 regions, increasing code delivery speed 20%.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="section">
-      <div class="label">projects</div>
-      <div class="projects-grid">
-        <a href="https://github.com/Dhawal-Modi/DSC_2024_Space_Jam" target="_blank" rel="noopener" class="project-card">
-          <img class="card-thumb" src="images/DSC.jpeg" alt="Data Science Challenge 2024 badge" loading="lazy">
-          <div class="card-body">
-            <span class="tag acc">ml/dl</span>
-            <div class="card-title">Heartbeat Classification &amp; TMP Reconstruction</div>
-            <div class="card-meta">DSC 2024, Lawrence Livermore National Lab · 1D SqueezeNet CNN, 97.46% acc</div>
-          </div>
-        </a>
-        <a href="https://github.com/Dhawal-Modi/llm-prompt-recovery" target="_blank" rel="noopener" class="project-card">
-          <img class="card-thumb" src="images/llmheader.png" alt="LLM Prompt Recovery" loading="lazy">
-          <div class="card-body">
-            <span class="tag lav">llm</span>
-            <div class="card-title">LLM Prompt Recovery</div>
-            <div class="card-meta">EECS230 Deep Learning · fine-tuned Phi-2, Mixtral 8x7B &amp; Gemma 7B</div>
-          </div>
-        </a>
-        <a href="https://github.com/Dhawal-Modi/Kaggle_Playground_S4E02" target="_blank" rel="noopener" class="project-card">
-          <img class="card-thumb" src="images/kaggles4e2header.png" alt="Obesity Risk Prediction — Kaggle S4E2" loading="lazy">
-          <div class="card-body">
-            <span class="tag cy">ml</span>
-            <div class="card-title">Multi-Class Prediction of Obesity Risk</div>
-            <div class="card-meta">Kaggle Playground S4E2 · obesity risk &amp; cardiovascular disease</div>
-          </div>
-        </a>
-        <a href="https://github.com/Dhawal-Modi/Bank_Customer_Churn_Kaggle_Playground_S4E01" target="_blank" rel="noopener" class="project-card">
-          <img class="card-thumb" src="images/kaggles4e1header.png" alt="Bank Customer Churn Prediction — Kaggle S4E1" loading="lazy">
-          <div class="card-body">
-            <span class="tag cy">ml</span>
-            <div class="card-title">Bank Customer Churn Prediction</div>
-            <div class="card-meta">Kaggle Playground S4E1 · churn classification</div>
-          </div>
-        </a>
-        <a href="https://github.com/sravanje/Musical-Audio-Similarity" target="_blank" rel="noopener" class="project-card">
-          <img class="card-thumb" src="images/EECS257.png" alt="Music audio similarity via dynamic time warping" loading="lazy">
-          <div class="card-body">
-            <span class="tag lav">dsp</span>
-            <div class="card-title">Music Audio Similarity using DTW</div>
-            <div class="card-meta">EECS257 Signal Processing for IoT · dynamic time warping</div>
-          </div>
-        </a>
-        <a href="https://github.com/Dhawal-Modi/Dynamic-Traffic-Management-using-OpenCV" target="_blank" rel="noopener" class="project-card">
-          <img class="card-thumb" src="images/traffic.png" alt="Real-time dynamic traffic management architecture" loading="lazy">
-          <div class="card-body">
-            <span class="tag acc">cv</span>
-            <div class="card-title">Real-Time Dynamic Traffic Management</div>
-            <div class="card-meta">Smart India Hackathon 2018 · OpenCV + Arduino adaptive signals</div>
-          </div>
-        </a>
-      </div>
-      <a href="https://github.com/Dhawal-Modi" target="_blank" rel="noopener" class="more-link">more projects on GitHub →</a>
-    </section>
-
-    <!-- PUBLICATIONS -->
-    <section id="publications" class="section">
-      <div class="label">publications</div>
-      <a href="https://doi.org/10.64898/2026.06.19.26356088" target="_blank" rel="noopener" class="pub-card">
-        <div class="pub-tags">
-          <span class="tag lav">preprint</span>
-          <span class="tag acc">under review · JAMA Cardiology</span>
-        </div>
-        <div class="pub-title">Artificial Intelligence-Enabled Cardiac Function Estimation from Phone Videos of Echocardiograms</div>
-        <div class="pub-authors"><span class="me">Dhawal Modi</span>, Jay Kim, Alexander Ye, Sahir Eusuff, Hirotaka Ieki, Andrew P. Ambrosy, Alan C. Kwan, Bryan He, James Zou, Susan Cheng, Euan Ashley, David Ouyang</div>
-        <div class="pub-doi">doi.org/10.64898/2026.06.19.26356088 <span>↗</span></div>
+  <section class="block">
+    <h2 class="block-label">Writing</h2>
+    <div>
+      <a class="paper" href="https://doi.org/10.64898/2026.06.19.26356088" target="_blank" rel="noopener">
+        <h3>Artificial Intelligence-Enabled Cardiac Function Estimation from Phone Videos of Echocardiograms</h3>
+        <p class="authors"><span class="me">Dhawal Modi</span>, Jay Kim, Alexander Ye, Sahir Eusuff, Hirotaka Ieki, Andrew P. Ambrosy, Alan C. Kwan, Bryan He, James Zou, Susan Cheng, Euan Ashley, David Ouyang</p>
+        <p class="paper-status">Preprint · under review at American Heart Association Circulation →</p>
       </a>
-    </section>
+    </div>
+  </section>
 
-    <!-- TEACHING -->
-    <section id="teaching" class="section">
-      <div class="label">teaching</div>
-      <div class="timeline">
-        <div class="tl-row">
-          <span class="tl-date">'24 &amp; '25</span>
-          <div>
-            <div class="tl-title">Teaching Assistant - CSE-015 Discrete Mathematics</div>
-            <div class="tl-org">University of California, Merced · Spring 2024 &amp; Spring 2025</div>
-            <div class="tl-note">Ran lab sessions, authored weekly quizzes, and graded coursework &amp; exams for a class of 90 undergraduates.</div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <hr>
 
-    <!-- EDUCATION -->
-    <section id="education" class="section">
-      <div class="label">education</div>
-      <div class="timeline">
-        <div class="tl-row bordered">
-          <span class="tl-date">MS · '23-'25</span>
-          <div>
-            <div class="tl-title">Master of Science, EECS</div>
-            <div class="tl-org">University of California, Merced</div>
-          </div>
-        </div>
-        <div class="tl-row">
-          <span class="tl-date">BE · '16–'20</span>
-          <div>
-            <div class="tl-title">Bachelor of Engineering, ECE</div>
-            <div class="tl-org">Rajiv Gandhi Proudyogiki Vishwavidyalaya</div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="block">
+    <h2 class="block-label">Selected projects</h2>
+    <div class="list">
+      <a class="row" href="https://github.com/Dhawal-Modi/DSC_2024_Space_Jam" target="_blank" rel="noopener">
+        <span>
+          <span class="row-title">Heartbeat classification &amp; TMP reconstruction</span>
+          <span class="row-meta">Data Science Challenge with Lawrence Livermore · 1D SqueezeNet CNN</span>
+        </span>
+        <span class="year">2024</span>
+      </a>
+      <a class="row" href="https://github.com/Dhawal-Modi/llm-prompt-recovery" target="_blank" rel="noopener">
+        <span>
+          <span class="row-title">LLM prompt recovery</span>
+          <span class="row-meta">Recovering the instruction from rewritten text · fine-tuned Phi-2, Mixtral 8x7B, Gemma 7B</span>
+        </span>
+        <span class="year">2024</span>
+      </a>
+      <a class="row" href="https://github.com/sravanje/Musical-Audio-Similarity" target="_blank" rel="noopener">
+        <span>
+          <span class="row-title">Music audio similarity with DTW</span>
+          <span class="row-meta">Dynamic time warping over spectral features · EECS257, Signal Processing for IoT</span>
+        </span>
+        <span class="year">2024</span>
+      </a>
+      <a class="row" href="https://github.com/Dhawal-Modi/Dynamic-Traffic-Management-using-OpenCV" target="_blank" rel="noopener">
+        <span>
+          <span class="row-title">Real-time dynamic traffic management</span>
+          <span class="row-meta">Signals that adapt to queue length · OpenCV and Arduino, Smart India Hackathon</span>
+        </span>
+        <span class="year">2018</span>
+      </a>
+      <a class="more" href="https://github.com/Dhawal-Modi" target="_blank" rel="noopener">Everything else on GitHub →</a>
+    </div>
+  </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section contact">
-      <div class="label">contact</div>
-      <h2>Let's talk →</h2>
-      <div class="contact-grid">
-        <a href="https://github.com/Dhawal-Modi" target="_blank" rel="noopener" class="contact-link">GitHub <span class="arrow">↗</span></a>
-        <a href="https://www.linkedin.com/in/dhawal-modi/" target="_blank" rel="noopener" class="contact-link">LinkedIn <span class="arrow">↗</span></a>
-        <a href="https://dhawal-modi.github.io/data/Resume.pdf" target="_blank" rel="noopener" class="contact-link">Resume / CV <span class="arrow">↗</span></a>
-        <a href="https://mailhide.io/e/oGj79Igg" target="_blank" rel="noopener" class="contact-link">Email <span class="arrow">↗</span></a>
-      </div>
-      <div class="copyright">// © 2026 Dhawal Modi</div>
-    </section>
+  <section class="block block-last">
+    <h2 class="block-label">Before that</h2>
+    <p class="closing">MS in EECS from UC Merced (2023–25), where I also TA'd Discrete Mathematics twice, running labs, writing quizzes and grading coursework. BE in Electronics &amp; Communications from RGPV before that.</p>
+  </section>
 
-  </main>
 </div>
-
-<script>
-(function () {
-  // ----- theme toggle (persisted) -----
-  var root = document.documentElement;
-  var btn = document.getElementById('themeToggle');
-  var saved = null;
-  try { saved = localStorage.getItem('theme'); } catch (e) {}
-  function apply(theme) {
-    if (theme === 'dark') { root.setAttribute('data-theme', 'dark'); btn.textContent = '☀ light'; }
-    else { root.removeAttribute('data-theme'); btn.textContent = '☾ dark'; }
-  }
-  apply(saved || 'light');
-  btn.addEventListener('click', function () {
-    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    apply(next);
-    try { localStorage.setItem('theme', next); } catch (e) {}
-  });
-
-  // ----- scrollspy: keep sidebar nav aligned with the section in view -----
-  var links = document.querySelectorAll('[data-nav]');
-  var ids = ['overview','about','experience','projects','publications','teaching','education','contact'];
-  var sections = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
-  var activeId = null;
-  var ticking = false;
-
-  function setActive(id) {
-    if (activeId === id) return;
-    activeId = id;
-    links.forEach(function (a) {
-      var isActive = a.getAttribute('data-nav') === id;
-      a.classList.toggle('active', isActive);
-      if (isActive) a.setAttribute('aria-current', 'true');
-      else a.removeAttribute('aria-current');
-    });
-  }
-
-  function getActiveSection() {
-    var scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
-    var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
-    var documentHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
-
-    // Near the bottom, make the final reachable section active even if it is short.
-    if (scrollY + viewportHeight >= documentHeight - 2) {
-      return sections[sections.length - 1];
-    }
-
-    // Use a stable reading line in the upper viewport instead of intersection ratio;
-    // this prevents long sections and section gaps from stealing the active state.
-    var readingLine = scrollY + Math.min(viewportHeight * 0.35, 220);
-    var current = sections[0];
-    sections.forEach(function (section) {
-      if (section.offsetTop <= readingLine) current = section;
-    });
-    return current;
-  }
-
-  function updateActiveSection() {
-    ticking = false;
-    var section = getActiveSection();
-    if (section) setActive(section.id);
-  }
-
-  function requestUpdate() {
-    if (!ticking) {
-      ticking = true;
-      window.requestAnimationFrame(updateActiveSection);
-    }
-  }
-
-  window.addEventListener('scroll', requestUpdate, { passive: true });
-  window.addEventListener('resize', requestUpdate);
-  updateActiveSection();
-})();
-</script>
 </body>
 </html>
