@@ -78,7 +78,6 @@ h1{
 
 /* blocks: label column + content */
 .block{ display:grid; grid-template-columns:180px 1fr; gap:48px; padding-top:56px; }
-.block-last{ padding-top:64px; }
 .block-label{
   font-family:var(--mono); font-weight:400; font-size:14.5px; letter-spacing:0.02em;
   color:var(--label); margin:0; padding-top:6px;
@@ -87,7 +86,7 @@ h1{
 /* work entries */
 .entries{ display:flex; flex-direction:column; gap:52px; }
 .entry > p:not(.entry-meta){ font-size:18.5px; line-height:1.7; color:var(--body); max-width:640px; margin:0; text-wrap:pretty; }
-.entry-head{ display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:14px; }
+.entry-head{ display:flex; flex-direction:column; gap:14px; margin-bottom:14px; }
 .entry-head h3{ font-weight:600; font-size:29px; line-height:1.25; letter-spacing:-0.015em; margin:0; }
 .entry .entry-meta{ font-size:16.5px; line-height:1.5; color:var(--meta); margin:0; }
 
@@ -124,7 +123,7 @@ h1{
   .page{ padding:48px 32px 72px; }
   h1{ font-size:44px; }
   .lead{ font-size:19px; }
-  .block, .block-last{ grid-template-columns:1fr; gap:20px; padding-top:44px; }
+  .block{ grid-template-columns:1fr; gap:20px; padding-top:44px; }
   hr{ margin:52px 0 0; }
   .entries{ gap:44px; }
   .entry-head h3{ font-size:26px; }
